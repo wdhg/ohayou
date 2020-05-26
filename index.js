@@ -24,7 +24,7 @@ bot.on('message', msg => {
   const date = new Date(msg.createdTimestamp);
   const hour = date.getHours();
   if (debug || 7 <= hour && hour < 8) {
-    msg.reply("CONGRATS ON WAKING UP BETWEEN 7 and 8 AM" + msg.author.username);
+    msg.reply("CONGRATS ON WAKING UP BETWEEN 7 and 8 AM " + msg.author.username);
     sendChonker(msg);
   }
 });
