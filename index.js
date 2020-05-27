@@ -6,6 +6,7 @@ const bot = new Discord.Client();
 const debug = false;
 const botID = '714555962840842373';
 const channel = 'wake-up';
+const targetHour = 7;
 
 const sendChonker = (msg) => {
   randomPuppy('chonkers').then(url => {
@@ -23,8 +24,9 @@ bot.on('message', msg => {
   }
   const date = new Date(msg.createdTimestamp);
   const hour = date.getHours();
-  if (debug || 7 <= hour && hour < 8) {
-    msg.reply("CONGRATS ON WAKING UP BETWEEN 7 AND 8 AM " + msg.author.username);
+  console.log("[+] MESSAGE FROM " + msg.author.username + " AT HOUR " + hour + " CONTENTS: " + msg.content);
+  if (debug || hour == targetHour) {
+    msg.reply("CONGRATS ON WAKING UP AT " + targetHour + " " + msg.author.username + "!");
     sendChonker(msg);
   }
 });
