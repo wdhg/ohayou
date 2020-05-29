@@ -7,6 +7,7 @@ const debug = false;
 const botID = '714555962840842373';
 const channel = 'wake-up';
 const targetHour = 7;
+const timezone = 1; // BST
 
 const sendChonker = (msg) => {
   randomPuppy('chonkers').then(url => {
@@ -25,7 +26,7 @@ bot.on('message', msg => {
   const date = new Date(msg.createdTimestamp);
   const hour = date.getHours();
   console.log("[+] MESSAGE FROM " + msg.author.username + " AT HOUR " + hour + " CONTENTS: " + msg.content);
-  if (debug || hour == targetHour) {
+  if (debug || hour + timezone == targetHour) {
     msg.reply("CONGRATS ON WAKING UP AT " + targetHour + " " + msg.author.username + "!");
     sendChonker(msg);
   }
