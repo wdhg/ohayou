@@ -24,9 +24,9 @@ bot.on('message', msg => {
     return;
   }
   const date = new Date(msg.createdTimestamp);
-  const hour = date.getHours();
+  const hour = date.getHours() + timezone;
   console.log("[+] MESSAGE FROM " + msg.author.username + " AT HOUR " + hour + " CONTENTS: " + msg.content);
-  if (debug || hour + timezone == targetHour) {
+  if (debug || hour == targetHour) {
     msg.reply("CONGRATS ON WAKING UP AT " + targetHour + " " + msg.author.username + "!");
     sendChonker(msg);
   }
