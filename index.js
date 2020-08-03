@@ -31,3 +31,5 @@ bot.on('message', msg => {
     sendChonker(msg);
   }
 });
+
+console.log("SERVER STARTED. AWAITING MESSAGES")
